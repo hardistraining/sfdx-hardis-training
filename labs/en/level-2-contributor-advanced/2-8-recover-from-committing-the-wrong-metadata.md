@@ -9,7 +9,7 @@ source_rev: ""
 screenshots:
   - annotated/vscode/pipeline-cards--new-user-story
   - annotated/vscode/metadata-retriever-recent-changes--select-all
-  - annotated/vscode/sidebar
+  - annotated/vscode/sidebar-commands-collapsed--reset-selection
   - annotated/vscode/pipeline-cards--save-publish
 depends_on:
   commands: [hardis:mdapi:read, hardis:work:resetselection, hardis:work:save]
@@ -57,15 +57,17 @@ In `helios-dev`, make one small real change: on the Installation layout, move `C
 `Install Date`.
 
 Now open **Commit changes**, search the recent changes, and this time click the tick box in the
-**table header** **(1)**, which selects every row at once. Retrieve them all, commit them all from
-**Source Control**, publish, push, and open the Pull Request into `integration`, as for any story.
-Do not merge it.
+**table header** **(1)**, which selects every row at once.
 
 ![The Metadata Retriever, with every row selected](../../_assets/annotated/vscode/metadata-retriever-recent-changes--select-all.png)
 
-In an org where Agentforce is on, the list can also carry `GenOpAgentConfig` rows, named after
-your flows. The Salesforce CLI does not know that type yet, so the retrieve stops and names it:
-untick those rows and retrieve again.
+Before you retrieve, look for `GenOpAgentConfig` rows, named after your flows: an org where
+Agentforce is on carries them, the Salesforce CLI does not know that type yet, and the retrieve
+would stop on them. Untick those rows first.
+
+Then retrieve them all. It takes longer than the retrieves of the earlier labs, ninety rows and
+every Profile among them comes whole, so let it run. Commit them all from **Source Control**,
+publish, push, and open the Pull Request into `integration`, as for any story. Do not merge it.
 
 ### 2. Look at what you did
 
@@ -99,7 +101,7 @@ whether or not a panel exposes it.
 
 Open it, then **CI/CD (simple)** **(1)**, then **Reset selected list of items to merge** **(2)**.
 
-![The SFDX HARDIS command list, with the CI/CD (simple) group open](../../_assets/annotated/vscode/sidebar.png)
+![The SFDX HARDIS command list, with the CI/CD (simple) group open](../../_assets/annotated/vscode/sidebar-commands-collapsed--reset-selection.png)
 
 It does more than its name suggests, and knowing exactly what saves you from undoing it twice. In
 one pass it:

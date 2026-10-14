@@ -5,11 +5,11 @@ description: "Vous avez publié bien plus que votre story. Voyez ce que cela fai
 level: 2
 lab: 8
 lang: fr
-source_rev: "01a905e7e9151601fa78faa31ef3915280f99ef7"
+source_rev: "ba9d1b43a5279217809c87d930a7d6fb3efed1f2"
 screenshots:
   - annotated/vscode/pipeline-cards--new-user-story
   - annotated/vscode/metadata-retriever-recent-changes--select-all
-  - annotated/vscode/sidebar
+  - annotated/vscode/sidebar-commands-collapsed--reset-selection
   - annotated/vscode/pipeline-cards--save-publish
 depends_on:
   commands: [hardis:mdapi:read, hardis:work:resetselection, hardis:work:save]
@@ -59,14 +59,17 @@ déplacez `Crew Size` au-dessus d'`Install Date`.
 
 Ouvrez maintenant **Commit changes**, cherchez les modifications récentes, et cette fois cliquez sur
 la case de l'**en-tête du tableau** **(1)**, qui sélectionne toutes les lignes d'un coup.
-Récupérez-les toutes, commitez-les toutes depuis **Source Control**, publiez, poussez, et ouvrez la Pull Request vers `integration`, comme pour
-toute story. Ne la mergez pas.
 
 ![Le Metadata Retriever, avec toutes les lignes sélectionnées](../../_assets/annotated/vscode/metadata-retriever-recent-changes--select-all.png)
 
-Dans une org où Agentforce est activé, la liste peut aussi porter des lignes `GenOpAgentConfig`, aux
-noms de vos flows. Salesforce CLI ne connaît pas encore ce type, donc la récupération s'arrête et le
-nomme : décochez ces lignes et relancez la récupération.
+Avant de récupérer, cherchez les lignes `GenOpAgentConfig`, aux noms de vos flows : une org où
+Agentforce est activé en porte, Salesforce CLI ne connaît pas encore ce type, et la récupération
+s'arrêterait dessus. Décochez d'abord ces lignes.
+
+Récupérez ensuite tout. C'est plus long que les récupérations des labs précédents, quatre-vingt-dix
+lignes et chaque profil parmi elles arrive entier, alors laissez tourner. Commitez tout depuis
+**Source Control**, publiez, poussez, et ouvrez la Pull Request vers `integration`, comme pour toute
+story. Ne la mergez pas.
 
 ### 2. Regarder ce que vous avez fait
 
@@ -102,7 +105,7 @@ toutes les commandes sfdx-hardis, qu'un panneau les expose ou non.
 
 Ouvrez-la, puis **CI/CD (simple)** **(1)**, puis **Reset selected list of items to merge** **(2)**.
 
-![La liste des commandes SFDX HARDIS, avec le groupe CI/CD (simple) ouvert](../../_assets/annotated/vscode/sidebar.png)
+![La liste des commandes SFDX HARDIS, avec le groupe CI/CD (simple) ouvert](../../_assets/annotated/vscode/sidebar-commands-collapsed--reset-selection.png)
 
 Elle fait plus que ce que son nom laisse entendre, et savoir exactement quoi vous évite de la défaire
 deux fois. En une passe, elle :

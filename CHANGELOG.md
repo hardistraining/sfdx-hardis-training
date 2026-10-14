@@ -3,12 +3,32 @@
 What changed in the course, for learners and trainers. The course has no versions: each section is
 a day, newest first, and a change goes under the date of the day it is made.
 
+## 2026-10-14
+
+- Lab 1.4 says that in Agentforce Vibes the org opens in a new browser tab, and what to do while the extension that opened nothing there is being updated (issue #163).
+- Lab 2.8 says to untick the Agentforce rows before the select-all retrieve, not after it fails, and that this retrieve is long by design (feedback from a learner).
+- Lab 2.6 and Lab 3.3 show the Deployment packages menu of the DevOps Pipeline panel, an icon whose name only appears on hover, with the picture Lab 1.5 already had (feedback from a learner).
+- Lab 3.3 quotes the deployment comment of a failed action with its new verdict, "⚠️ Deployed to integration, but an action failed after the deployment".
+- The three capstones and every badge page show the Cloudity services banner, as the home page and the Help page do.
+- Levels 2 and 3 no longer show the amber "This level is in QA" banner: the three levels are released.
+
 ## 2026-10-13
 
+- The Badges page lists the holders by badge, Release Manager first, with the date and time of each award and the latest one on top.
 - The home page opens on a banner of the course and a Start button, and shows the DevOps Pipeline panel in motion before the list of levels.
 - The home page, the Help page, the last lab of each level and every badge page say who offers the course: Cloudity, and what it does on real projects, from Agentforce and Revenue Cloud to Field Service, Managed Services and DevOps.
 - Every page ends with one line about Cloudity in its footer, and each menu has a link to the Cloudity site in its language.
 - In dark mode, the label of a purple button can be read again.
+- Lab 2.2: an installation now shows its activities, so the task the flow creates can be seen on the record.
+- Lab 2.3: step 8 says when to merge the Pull Request, and how.
+- Lab 3.1: the step that configures `main` says to tick no merge target.
+- Lab 3.9: how to read a generated page as a page in VS Code.
+- Lab 3.10: the `uat` counter reads seven, then four, as on your fork, and the screenshots show the seven Pull Requests.
+- The numbered marks of about thirty screenshots, in all three levels, are back on the button, field or line the step names, and no longer hide part of it.
+- The Level 1 training menu is shown with its seven commands, **Update my course** included.
+- Lab 2.8: the picture of the command list shows the whole **Reset selected list of items to merge** row.
+- Lab 2.4: the data action in the pictures carries the label the lab asks you to type.
+- Lab 2.4: step 1 names the permission set, and the troubleshooting says what to do when the check of step 5 stays green on a fork updated before 2026-10-07.
 
 ## 2026-10-12
 

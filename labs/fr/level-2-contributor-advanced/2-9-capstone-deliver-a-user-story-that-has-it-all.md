@@ -5,7 +5,7 @@ description: "Livrez une User Story Salesforce avec une dépendance à vérifier
 level: 2
 lab: 9
 lang: fr
-source_rev: "9b11a4fe7b1326ad52e54eeef6eefb81354aef3b"
+source_rev: "8457b9d912c1a56b592795702dde35ed55af4143"
 screenshots:
   - annotated/web/github-star-megalinter
 depends_on:
@@ -20,7 +20,7 @@ depends_on:
 
 **Niveau** : 2 Contributeur avancé
 
-**Durée** : ~1 h 40<!-- observed --> (observé : médiane 1 h 44, 3 participants, le plus rapide 1 h 16)<!-- /observed -->
+**Durée** : ~1 h 10<!-- observed --> (observé : médiane 1 h 13, 6 participants, le plus rapide 39 min)<!-- /observed -->
 
 **Vous allez** : livrer une story qui contient une dépendance à vérifier, une deployment action de
 données et un collègue qui travaille sur le même permission set, sans pas-à-pas.
@@ -51,14 +51,17 @@ savez déjà traiter les trois.
 ### La story
 
 1. **Prenez-la.** Nom `US-041-handover-checklist`, org `helios-dev`
-2. **Construisez l'objet** : `Handover_Item__c`, avec `External_Id__c` (Text 40, identifiant externe,
-   unique), `Installation__c` (lookup), `Label__c`, `Sequence__c`, `Is_Done__c`, `Is_Template__c`
+2. **Construisez l'objet** : `Handover_Item__c`, son **Record Name** en Auto Number
+   `Handover Item Number`, `HI-{00000}`, **Starting Number** à `0`, comme le [Lab 2.4](2-4-ship-reference-data-and-a-batch-with-deployment-actions.md) pour Crew Capacity, avec `External_Id__c`
+   (Text 40, identifiant externe, unique), `Installation__c` (Lookup vers Installation), `Label__c`
+   (Text 255), `Sequence__c` (Number 3, 0), `Is_Done__c` et `Is_Template__c` (Checkbox, décochées).
+   En le créant, cochez **Launch New Custom Tab Wizard after saving this custom object**, choisissez
+   n'importe quel style d'onglet et gardez les autres valeurs par défaut de l'assistant : l'onglet est
+   ce qui vous mène aux enregistrements à l'étape 3
 3. **Construisez les données de référence** : 10 enregistrements `Handover_Item__c` modèles sans
    installation, la checklist dont part chaque chantier. **Vous les créez à la main, dans
-   `helios-dev`**, comme n'importe quel enregistrement : ouvrez l'org depuis **Orgs Manager**, puis
-   remplacez tout ce qui suit `salesforce.com` dans la barre d'adresse par
-   `/lightning/o/Handover_Item__c/list` (l'objet n'a pas d'onglet, et cette page fonctionne sans).
-   Cliquez dix fois sur **New**. Pour chaque enregistrement, donnez un **External Id**
+   `helios-dev`**, comme n'importe quel enregistrement : ouvrez l'org depuis **Orgs Manager**,
+   cherchez **Handover Items** dans l'App Launcher, et cliquez dix fois sur **New**. Pour chaque enregistrement, donnez un **External Id**
    (`HANDOVER-TPL-01` à `HANDOVER-TPL-10`), un **Label** (`Panels fixed and torqued`,
    `Inverter commissioned`, `Isolator labelled`...), une **Sequence** (10, 20, 30...), cochez
    **Is Template**, et laissez **Installation** vide
@@ -73,9 +76,21 @@ savez déjà traiter les trois.
    Handover Item, et **Read** et **Edit** sur ses champs. L'utilisateur de la pipeline porte lui aussi
    ce permission set, et le chargement de données du deuxième piège en a besoin, comme au [Lab 2.4](2-4-ship-reference-data-and-a-batch-with-deployment-actions.md)
 6. **Faites un retrieve** : **Commit changes**, **Recent Changes**, et prenez ce que vous avez fait
-   et rien d'autre. Commitez
-7. **Publiez, Pull Request, vert, merge**, dans l'ordre que demandent les trois points
-   ci-dessous : le coéquipier passe avant votre Pull Request, l'action de données après
+   et rien d'autre, onglet compris. L'assistant d'onglet a aussi touché des profils et des
+   applications : laissez ces lignes. Commitez
+7. **Comptez avant de pousser** : ce que vous avez créé, puis la même chose dans `force-app/`
+   (**Une**, ci-dessous)
+8. **Mergez d'abord le collègue** : simulez US-019, mergez-la, ramenez `integration` dans votre
+   branche, et vérifiez que le permission set porte les deux droits (**Trois**, ci-dessous)
+9. **Construisez le workspace de données** des dix enregistrements, comme au [Lab 2.4](2-4-ship-reference-data-and-a-batch-with-deployment-actions.md), et commitez-le
+   (**Deux**, ci-dessous)
+10. **Publiez et ouvrez la Pull Request** vers `integration`, et lisez le rapport **Git Delta
+    package.xml** : chaque composant compté à l'étape 7 y figure
+11. **Déclarez l'action de données** sur la Pull Request, puis commitez le fichier écrit par
+    l'éditeur et publiez à nouveau (**Et l'action de données**, ci-dessous)
+12. **Vert, puis merge** avec **Squash and merge**
+
+Les sections ci-dessous expliquent pourquoi chacune de ces étapes est à sa place.
 
 ### Les trois choses qui vous attendent
 

@@ -5,7 +5,7 @@ description: "Une permission accordée sur un profil s'évapore après un déplo
 level: 2
 lab: 6
 lang: fr
-source_rev: "fbd807a35b1b968f5a7f2c9a48bdbf154109b86e"
+source_rev: "92089c459bec9e0ea2c6541948c6085273a24ba2"
 screenshots:
   - annotated/vscode/pipeline-cards--new-user-story
   - annotated/vscode/pipeline-packages-menu--package-xml
@@ -22,7 +22,7 @@ depends_on:
 
 **Niveau** : 2 Contributeur avancé
 
-**Durée** : ~30 min<!-- observed --> (observé : médiane 34 min, 6 participants, le plus rapide 21 min)<!-- /observed -->
+**Durée** : ~25 min<!-- observed --> (observé : médiane 26 min, 9 participants, le plus rapide 10 min)<!-- /observed -->
 
 **Vous allez** : courir après une permission qui s'évapore entre un déploiement vert et l'org cible,
 et découvrir qu'elle a été retirée exprès.
@@ -277,9 +277,11 @@ cible n'a pas. Le message la nomme, sous la forme `Objet-Nom de la présentation
    manager, ou en la désactivant dans l'org où vous construisez, puis récupérez le profil de
    nouveau. Une langue : passez votre utilisateur en anglais dans l'org cible, **votre photo >
    Settings > Language & Time Zone**, et renommez-y la présentation. Tout le reste, sur un objet
-   que votre projet n'utilise pas : la ligne n'a rien à faire dans le repository. Dans une User
-   Story **Fix**, ouvrez le fichier du profil, supprimez le bloc `<layoutAssignments>` qui nomme
-   la présentation, ou le bloc `<tabVisibilities>` qui nomme l'onglet, et publiez
+   que votre projet n'utilise pas : la ligne n'a rien à faire dans le repository. Ouvrez le
+   fichier du profil, supprimez le bloc `<layoutAssignments>` qui nomme la présentation, ou le
+   bloc `<tabVisibilities>` qui nomme l'onglet, commitez, et faites **Save / Publish** : sur la
+   branche de ce lab quand c'est sa propre Pull Request qui est rouge, dans une User Story **Fix**
+   quand le profil est déjà mergé
 
 Salesforce signale un seul nom manquant par déploiement : un deuxième peut se cacher derrière le
 premier.

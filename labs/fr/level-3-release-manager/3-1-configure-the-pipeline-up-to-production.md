@@ -5,7 +5,7 @@ description: "Étendez une pipeline Salesforce à deux étages jusqu'à la produ
 level: 3
 lab: 1
 lang: fr
-source_rev: "5452f86972ca4fa9991c123ac7e504ba995a68d3"
+source_rev: "fb0349c738648dc1de48087e48e34116ccca7095"
 screenshots:
   - annotated/vscode/devops-pipeline--one-column
   - annotated/web/github-new-branch
@@ -37,7 +37,7 @@ depends_on:
 
 **Niveau** : 3 Release Manager
 
-**Durée** : ~50 min
+**Durée** : ~45 min<!-- observed --> (observé : médiane 47 min, 4 participants, le plus rapide 15 min)<!-- /observed -->
 
 **Vous allez** : transformer une pipeline à deux étages en une pipeline à quatre étages qui atteint la
 production, donner aux deux nouveaux étages leur org et un identifiant avec lequel un vrai projet peut
@@ -368,8 +368,9 @@ la commande a déjà faite : l'External Client App qu'elle déploie porte
 Regardez-la une fois, pour savoir où elle est le jour où cela compte.
 
 Dans `helios-preprod` : **Setup > External Client App Manager**, ouvrez l'application, dont le
-nom par défaut était `sfdxhardispreprod`, puis **Policies**. Permitted Users affiche
-*Admin approved users are pre-authorized*, et le profil est listé.
+nom par défaut était `sfdxhardispreprod`. Au-dessus des onglets, **App Authorization** affiche
+*Admin approved users are pre-authorized*. Dans l'onglet **Policies**, sous **App Policies**,
+**Selected Profiles** liste le profil.
 
 Cela compte à cause du seul chemin où ce n'est **pas** fait pour vous : si le déploiement de
 l'application échoue et que la commande retombe sur l'affichage d'instructions manuelles, ces
@@ -508,8 +509,11 @@ Request aux contrôles verts. La protection de l'étape 3 refuserait tout le res
 Vous les publiez comme vous avez publié une User Story au Niveau 1, avec les mêmes boutons.
 
 **Commitez-les.** Dans le panneau **Source Control**, stagez les fichiers de configuration et
-commitez-les sous `Configure the pipeline up to production`, exactement comme vous stagiez de la
+commitez-les sous `US-050 Configure the pipeline up to production`, exactement comme vous stagiez de la
 métadonnée au [Lab 1.5](../level-1-contributor-basics/1-5-retrieve-commit-and-publish-your-changes.md).
+Gardez le numéro de la story au début, et vérifiez que le titre de la Pull Request commence aussi
+par lui, quitte à le corriger : ce titre devient le commit du squash, et c'est lui qui relie
+cette configuration à US-050 dans les release notes du [Lab 3.5](3-5-promote-to-uat-and-write-release-notes.md), bien après la disparition du nom de branche.
 
 **Publiez.** Dans le panneau **DevOps Pipeline**, cliquez sur la carte **Save / Publish** **(1)**,
 celle par laquelle chaque story est passée depuis le [Lab 1.5](../level-1-contributor-basics/1-5-retrieve-commit-and-publish-your-changes.md). Elle ne demande pas la branche cible :
@@ -719,6 +723,17 @@ formulaire à nouveau.
 GitHub ne liste que les contrôles qui ont rendu compte sur ce repository dans les sept derniers
 jours. Ouvrez une Pull Request vers `integration`, laissez ses contrôles tourner, et revenez à la
 règle.
+
+**La Pull Request attend sur `Expected - Waiting for status to be reported`, et son onglet Checks
+est vide.**
+Rien n'a tourné : GitHub n'a pas lancé les workflows de votre fork, donc les deux contrôles que ce
+lab a rendus obligatoires n'ont jamais rendu compte, et le merge les attend. Ouvrez l'onglet
+**Actions** de votre fork (`github.com/my-username/sfdx-hardis-training`). Un bandeau avec **I
+understand my workflows, go ahead and enable them** veut dire qu'Actions est coupé : cliquez dessus.
+Sans bandeau, ouvrez **Settings > Actions > General** et vérifiez qu'Actions est autorisé. Ensuite,
+sur votre branche de User Story, lancez **Training: Level 1 > Trigger my workflows** : il vérifie
+que les workflows ont le droit de tourner, et pousse une ligne, ce qui lance les contrôles d'une
+Pull Request ouverte quand ils ne le pouvaient pas.
 
 **Set up my training environment échoue avec `There is already a Child Relationship named
 Installations on Account`.**

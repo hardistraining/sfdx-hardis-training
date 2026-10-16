@@ -21,7 +21,7 @@ depends_on:
 
 **Level**: 2 Contributor advanced
 
-**Time**: ~30 min<!-- observed --> (observed: median 30 min, 6 learners, fastest 9 min)<!-- /observed -->
+**Time**: ~20 min<!-- observed --> (observed: median 24 min, 9 learners, fastest 9 min)<!-- /observed -->
 
 **You will**: get blocked twice by robots, fix both properly rather than around them, and learn to
 run the checks before pushing.
@@ -232,6 +232,11 @@ runs on your default org, `helios-dev`.
 It runs the org's Apex tests and checks the same coverage threshold the pipeline checks, so you get
 the pass, the fail and the percentage without pushing anything. Give it a few minutes: a scratch
 org queues its test runs, and the first one of the day can take ten.
+
+The percentage is the one of `helios-dev`, and it is not the one the check prints. The two batch
+classes of Labs 2.3 and 2.4 went to `helios-integration` through the pipeline, and reach your
+org only with a backpromote: until then `helios-dev` counts fewer lines, and reads higher. What the card tells you for sure is
+whether your tests pass, and whether your own class is covered.
 
 !!! note "The banner at the top is expected"
     *Org Monitoring Not Present (CI/CD Repo)* means this repository is a delivery pipeline and not a

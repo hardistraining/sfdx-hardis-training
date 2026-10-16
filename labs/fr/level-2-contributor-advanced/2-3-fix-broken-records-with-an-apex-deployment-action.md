@@ -5,7 +5,7 @@ description: "Rendre un champ obligatoire se déploie au vert et casse les enreg
 level: 2
 lab: 3
 lang: fr
-source_rev: "4d75e753f59abe54ca136f71871766e142010aa3"
+source_rev: "1b0b663bfc1bd8871142db1bea1cc7a40cbde946"
 screenshots:
   - annotated/vscode/pipeline-cards--my-pull-request
   - annotated/vscode/pipeline-cards--new-user-story
@@ -24,7 +24,7 @@ depends_on:
 
 **Niveau** : 2 Contributeur avancé
 
-**Durée** : ~45 min<!-- observed --> (observé : médiane 48 min, 12 participants, le plus rapide 16 min)<!-- /observed -->
+**Durée** : ~45 min<!-- observed --> (observé : médiane 47 min, 17 participants, le plus rapide 16 min)<!-- /observed -->
 
 **Vous allez** : rencontrer un échec qu'aucune correction de métadonnée ne résout, et découvrir
 l'outil qui existe pour cela : une deployment action.
@@ -64,10 +64,10 @@ Pipeline. Nom `US-024-crew-size-required`, org `helios-dev`.
 ![La carte New User Story du panneau DevOps Pipeline](../../_assets/annotated/vscode/pipeline-cards--new-user-story.png)
 
 Dans `helios-dev` : **Setup > Object Manager > Installation > Fields & Relationships > Crew Size >
-Edit**, cochez **Required**, **Save**.
+Edit**, cochez **Required**.
 
-Salesforce vous avertit au sujet des appels API et Apex, vous demande de **Confirm**, et
-l'enregistre. Pas un mot sur vos données, alors que la plupart des installations de votre org n'ont pas de
+Dès que la case est cochée, Salesforce vous avertit au sujet des appels API et Apex et vous demande
+de confirmer. Cliquez sur **Confirm**, puis **Save**. Pas un mot sur vos données, alors que la plupart des installations de votre org n'ont pas de
 crew size. Retenez-le : c'est tout ce lab.
 
 Faites un retrieve du champ avec **Commit changes** (le champ, rien d'autre), commitez-le, **Save /
@@ -104,11 +104,16 @@ erreur, avec un lien vers la règle.
 Le contrôle passe. **Ne mergez pas encore.**
 
 Ouvrez `helios-dev`, trouvez une installation sans crew size, changez n'importe quoi dessus, et
-enregistrez.
+enregistrez. L'enregistrement refuse :
 
 ```
-Required fields are missing: [Crew_Size__c]
+We hit a snag.
+Review the following fields
+  • Crew Size
 ```
+
+Le même refus s'écrit `Required fields are missing: [Crew_Size__c]` quand il vient d'Apex ou de
+l'API, et c'est ainsi qu'un script le rencontre.
 
 **Salesforce impose un champ obligatoire à l'enregistrement, pas sur les données déjà présentes.** Il
 a parfaitement accepté de rendre le champ obligatoire alors que la plupart des installations

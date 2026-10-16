@@ -5,10 +5,10 @@ description: "Vous avez publié bien plus que votre story. Voyez ce que cela fai
 level: 2
 lab: 8
 lang: fr
-source_rev: "ba9d1b43a5279217809c87d930a7d6fb3efed1f2"
+source_rev: "df00c1ceef2ba8e651df49686bced47d8aad0e5b"
 screenshots:
   - annotated/vscode/pipeline-cards--new-user-story
-  - annotated/vscode/metadata-retriever-recent-changes--select-all
+  - annotated/vscode/metadata-retriever-recent-changes--pick-rows
   - annotated/vscode/sidebar-commands-collapsed--reset-selection
   - annotated/vscode/pipeline-cards--save-publish
 depends_on:
@@ -23,7 +23,7 @@ depends_on:
 
 **Niveau** : 2 Contributeur avancé
 
-**Durée** : ~25 min<!-- observed --> (observé : médiane 27 min, 5 participants, le plus rapide 16 min)<!-- /observed -->
+**Durée** : ~30 min<!-- observed --> (observé : médiane 32 min, 8 participants, le plus rapide 10 min)<!-- /observed -->
 
 **Vous allez** : sur-sélectionner exprès au moment de publier, voir ce que cela fait à une Pull
 Request, et apprendre les deux chemins de récupération.
@@ -57,19 +57,23 @@ Pipeline. Nom `US-038-installation-notes-tidy`, org `helios-dev`.
 Dans `helios-dev`, faites une petite vraie modification : sur la présentation de page Installation,
 déplacez `Crew Size` au-dessus d'`Install Date`.
 
-Ouvrez maintenant **Commit changes**, cherchez les modifications récentes, et cette fois cliquez sur
-la case de l'**en-tête du tableau** **(1)**, qui sélectionne toutes les lignes d'un coup.
+Ouvrez maintenant **Commit changes** et cherchez les modifications récentes. Cliquez sur l'en-tête
+**Last Updated Date** **(1)**, deux fois si besoin, pour avoir les plus récentes en premier, et cochez
+les **vingt** premières lignes **(2)**, quelles qu'elles soient : votre présentation de page en fait
+partie. Tapez ensuite `Admin` dans **Search in results** **(3)**, cochez la ligne `Admin` de type
+**Profile**, et videz la recherche. Les vingt lignes restent cochées.
 
-![Le Metadata Retriever, avec toutes les lignes sélectionnées](../../_assets/annotated/vscode/metadata-retriever-recent-changes--select-all.png)
+![Le Metadata Retriever, trié du plus récent au plus ancien, avec les cases à cocher et la recherche dans les résultats](../../_assets/annotated/vscode/metadata-retriever-recent-changes--pick-rows.png)
 
-Avant de récupérer, cherchez les lignes `GenOpAgentConfig`, aux noms de vos flows : une org où
+Sur un vrai projet, cette erreur, c'est la case de l'en-tête du tableau, toutes les lignes d'un coup.
+Vingt lignes et un profil font le même désordre et se récupèrent en une fraction du temps. Si l'une
+de vos lignes est un `GenOpAgentConfig`, au nom d'un de vos flows, décochez-la : une org où
 Agentforce est activé en porte, Salesforce CLI ne connaît pas encore ce type, et la récupération
-s'arrêterait dessus. Décochez d'abord ces lignes.
+s'arrêterait dessus.
 
-Récupérez ensuite tout. C'est plus long que les récupérations des labs précédents, quatre-vingt-dix
-lignes et chaque profil parmi elles arrive entier, alors laissez tourner. Commitez tout depuis
-**Source Control**, publiez, poussez, et ouvrez la Pull Request vers `integration`, comme pour toute
-story. Ne la mergez pas.
+Récupérez-les ensuite. Le profil arrive entier, c'est donc un peu plus long que les récupérations des
+labs précédents. Commitez tout depuis **Source Control**, publiez, poussez, et ouvrez la Pull Request
+vers `integration`, comme pour toute story. Ne la mergez pas.
 
 ### 2. Regarder ce que vous avez fait
 

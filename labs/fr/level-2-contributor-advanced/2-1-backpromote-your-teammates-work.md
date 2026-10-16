@@ -5,7 +5,7 @@ description: "Votre org de développement est en retard sur integration. Faites-
 level: 2
 lab: 1
 lang: fr
-source_rev: "b7454067edc4ccbf675224de0d1f09952b6e3b16"
+source_rev: "2dcedecd93e850090387ef6c49a1017adfe0838c"
 screenshots:
   - annotated/vscode/sidebar-commands-custom-menu-2--training-menu
   - annotated/web/github-pr-files
@@ -27,7 +27,7 @@ depends_on:
 
 **Niveau** : 2 Contributeur avancé
 
-**Durée** : ~20 min<!-- observed --> (Labs 2.1 et 2.2 observés ensemble : médiane 57 min, 14 participants, le plus rapide 28 min)<!-- /observed -->
+**Durée** : ~20 min<!-- observed --> (Labs 2.1 et 2.2 observés ensemble : médiane 55 min, 20 participants, le plus rapide 21 min)<!-- /observed -->
 
 **Vous allez** : rapatrier dans votre propre org de dev la story mergée par un collègue, décider
 quoi garder quand l'outil vous le demande, et apprendre ce qu'un backpromote ne fera jamais pour
@@ -316,6 +316,15 @@ Et une chose qu'il fait et que personne n'attend la première fois :
     métadonnée de vos collègues, et sans ce merge votre prochain **Save / Publish** la verrait comme
     une modification à vous et la mettrait dans votre Pull Request. La question ne vient pas quand
     vous êtes sur la branche parente elle-même, ni quand votre branche l'a déjà.
+
+    Une exception, et c'est le cas juste après le Niveau 1 : la branche sur laquelle vous revenez
+    est une story dont la Pull Request est déjà mergée, comme `features/US-016-crew-notes`. Cette
+    branche est terminée : si VS Code pose la question, fermez-la au lieu de cliquer sur
+    **Merge `<parent>`**. Le merge
+    s'arrêterait sur un conflit dans le layout d'Installation, parce qu'`integration` contient votre
+    story en un seul commit squashé, avec le champ de Romain à côté.
+    Le [Lab 2.2](2-2-fix-a-missing-dependency-deployment-error.md) démarre une nouvelle story depuis
+    `integration`, qui a tout.
 
 L'historique n'est pas sur votre ordinateur non plus. sfdx-hardis note ce qui a atteint votre sandbox
 dans un **commentaire Backpromotes** sur chaque Pull Request qu'il a rapatriée, pour que le

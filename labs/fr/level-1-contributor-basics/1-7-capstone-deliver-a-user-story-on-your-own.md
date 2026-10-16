@@ -5,7 +5,7 @@ description: "Livrez une User Story Salesforce de bout en bout sans pas-à-pas :
 level: 1
 lab: 7
 lang: fr
-source_rev: "4305dc9121e535c8abeab94baf044c1cbbc44f11"
+source_rev: "2610ebccf0373eff6db002d3a559ced8d4526f39"
 screenshots:
   - annotated/web/github-star-sfdx-hardis
 depends_on:
@@ -20,7 +20,7 @@ depends_on:
 
 **Niveau** : 1 Contributeur, les bases
 
-**Durée** : ~30 min<!-- observed --> (observé : médiane 32 min, 11 participants, le plus rapide 11 min)<!-- /observed -->
+**Durée** : ~30 min<!-- observed --> (observé : médiane 32 min, 17 participants, le plus rapide 11 min)<!-- /observed -->
 
 **Vous allez** : refaire toute la boucle sans pas-à-pas, la seule façon de savoir si vous l'avez
 apprise.
@@ -54,8 +54,8 @@ Pas de clics numérotés cette fois. La boucle, dans l'ordre :
    org** et **Reuse scratch org helios-dev**. Votre org a déjà US-014, puisque vous l'y avez
    construite
 2. **Construisez-la dans `helios-dev`**
-   - Un champ **Long Text Area** `Crew_Notes__c` sur `Installation__c`, 4000 caractères, avec une
-     description et un help text
+   - Un champ **Long Text Area** `Crew_Notes__c` sur `Installation__c`, le type que l'assistant de
+     champ liste sous **Text Area (Long)**, 4000 caractères, avec une description et un help text
    - Accordez-lui **Read** et **Edit** sur `Helios Delivery Crew`, parce que c'est un membre de
      l'équipe de pose qui écrit les notes. Personne d'autre ne le voit pour le moment : le tour
      des planificateurs vient au Niveau 2

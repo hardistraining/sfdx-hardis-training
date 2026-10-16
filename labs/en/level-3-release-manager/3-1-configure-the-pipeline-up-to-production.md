@@ -37,7 +37,7 @@ depends_on:
 
 **Level**: 3 Release Manager
 
-**Time**: ~50 min
+**Time**: ~45 min<!-- observed --> (observed: median 47 min, 4 learners, fastest 15 min)<!-- /observed -->
 
 **You will**: turn a two-stage pipeline into a four-stage one that reaches production, give the two
 new stages their org and a credential a real project can live with, and publish all of it the way
@@ -351,8 +351,9 @@ the External Client App it deploys carries `Admin approved users are pre-authori
 you named at the last question. Look at it once, so you know where it is when it matters.
 
 In `helios-preprod`: **Setup > External Client App Manager**, open the app, whose name defaulted
-to `sfdxhardispreprod`, then **Policies**. Permitted Users reads *Admin approved users are
-pre-authorized*, and the profile is listed.
+to `sfdxhardispreprod`. Above the tabs, **App Authorization** reads *Admin approved users are
+pre-authorized*. On the **Policies** tab, under **App Policies**, **Selected Profiles** lists the
+profile.
 
 It matters because of the one path where it is **not** done for you: if the app deployment fails and
 the command falls back to printing manual instructions, those instructions stop at uploading the
@@ -485,7 +486,10 @@ step 3 would refuse anything else.
 You publish them the way you published a User Story in Level 1, with the same buttons.
 
 **Commit them.** In the **Source Control** panel, stage the configuration files and commit them as
-`Configure the pipeline up to production`, exactly as you staged metadata in [Lab 1.5](../level-1-contributor-basics/1-5-retrieve-commit-and-publish-your-changes.md).
+`US-050 Configure the pipeline up to production`, exactly as you staged metadata in [Lab 1.5](../level-1-contributor-basics/1-5-retrieve-commit-and-publish-your-changes.md).
+Keep the story number at the start, and check that the title of the Pull Request starts with it
+too, editing it if needed: that title becomes the commit of the squash, and it is what links
+this configuration to US-050 in the release notes of [Lab 3.5](3-5-promote-to-uat-and-write-release-notes.md), long after the branch name is gone.
 
 **Publish.** In the **DevOps Pipeline** panel, click the **Save / Publish** card **(1)**, the one
 every story has gone through since [Lab 1.5](../level-1-contributor-basics/1-5-retrieve-commit-and-publish-your-changes.md). It does not ask for the target branch:
@@ -683,6 +687,16 @@ the list: if the rule or the secret is not in it, fill the form again.
 **The check you want to require is not suggested.**
 GitHub only lists checks that reported on this repository in the last seven days. Open a Pull
 Request into `integration`, let its checks run, and come back to the rule.
+
+**The Pull Request waits on `Expected - Waiting for status to be reported`, and its Checks tab is
+empty.**
+Nothing ran: GitHub did not start the workflows of your fork, so the two checks this lab made
+required never reported, and the merge waits for them. Open the **Actions** tab of your fork
+(`github.com/my-username/sfdx-hardis-training`). A banner with **I understand my workflows, go
+ahead and enable them** means Actions are off: click it. With no banner, open **Settings >
+Actions > General** and check that Actions are allowed. Then, on your User Story branch, run
+**Training: Level 1 > Trigger my workflows**: it checks that the workflows may run, and pushes one
+line, which is what starts the checks of a Pull Request opened while they could not.
 
 **Set up my training environment fails with `There is already a Child Relationship named
 Installations on Account`.**

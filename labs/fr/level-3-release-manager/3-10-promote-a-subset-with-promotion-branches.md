@@ -5,7 +5,7 @@ description: "Transportez trois User Stories approuvées sur cinq de uat vers pr
 level: 3
 lab: 10
 lang: fr
-source_rev: "2f0ad8e1bd7f22c5db0641c2226c112ae4d39976"
+source_rev: "f8e19f65fa8c62b369e31883ac3263668123c01d"
 screenshots:
   - annotated/vscode/welcome-custom-menu-3
   - annotated/vscode/pipeline-config-danger--promotion-branches
@@ -29,7 +29,7 @@ depends_on:
 
 **Niveau** : 3 Release Manager
 
-**Durée** : ~55 min
+**Durée** : ~1 h 15<!-- observed --> (observé : médiane 1 h 16, 5 participants, le plus rapide 46 min)<!-- /observed -->
 
 **Vous allez** : livrer en preprod trois User Stories approuvées pendant que deux autres restent en
 UAT, résoudre le conflit que l'une d'elles traîne avec elle, et remettre la pipeline d'aplomb
@@ -96,7 +96,7 @@ telle qu'elle est, US-058 et US-060 comprises.
 Les deux réglages dont ce lab a besoin ont été publiés au [Lab 3.1](3-1-configure-the-pipeline-up-to-production.md) et remontent la pipeline avec
 chaque promotion depuis. Regardez-les avant de compter dessus.
 
-Ouvrez le panneau **DevOps Pipeline**, le menu engrenage, **Pipeline Settings**, portée **Global
+Ouvrez le panneau **DevOps Pipeline**, le menu engrenage, **Configure Pipeline Settings**, portée **Global
 Settings**, puis l'onglet **Danger Zone**.
 
 ![La Danger Zone des Global Pipeline Settings, avec les deux réglages des promotion branches](../../_assets/annotated/vscode/pipeline-config-danger--promotion-branches.png)

@@ -5,7 +5,7 @@ description: "Rendre un champ obligatoire se déploie au vert et casse les enreg
 level: 2
 lab: 3
 lang: fr
-source_rev: "abb4934a86102a9408e6d1f1d7139c5b07d6bd64"
+source_rev: "6dbfefd0555802e73d14a18c95b4e534fde78f76"
 screenshots:
   - annotated/vscode/pipeline-cards--my-pull-request
   - annotated/vscode/pipeline-cards--new-user-story
@@ -24,7 +24,7 @@ depends_on:
 
 **Niveau** : 2 Contributeur avancé
 
-**Durée** : ~45 min<!-- observed --> (observé : médiane 47 min, 19 participants, le plus rapide 12 min)<!-- /observed -->
+**Durée** : ~35 min<!-- observed --> (observé : médiane 39 min, 6 participants, le plus rapide 15 min)<!-- /observed -->
 
 **Vous allez** : rencontrer un échec qu'aucune correction de métadonnée ne résout, et découvrir
 l'outil qui existe pour cela : une deployment action.
@@ -156,6 +156,10 @@ dans `force-app/main/default/classes/`, dans l'Explorer, par copier-coller :
   par défaut de deux personnes à toute installation qui n'en a pas
 - `CrewSizeBackfillBatchTest.cls` et `CrewSizeBackfillBatchTest.cls-meta.xml` : son test. Salesforce
   ne déploie pas d'Apex sans test, et le [Lab 2.5](2-5-pass-code-quality-and-apex-test-coverage.md) parle de cette barrière
+
+Ces quatre-là et aucun autre, et copiés, pas déplacés. Le dossier contient aussi `CrewCapacityBatch`
+et son test, qui sont pour le [Lab 2.4](2-4-ship-reference-data-and-a-batch-with-deployment-actions.md) : ils ont besoin d'un objet que cette story n'apporte pas,
+le check de votre Pull Request échoue dessus, et le [Lab 2.4](2-4-ship-reference-data-and-a-batch-with-deployment-actions.md) les copie depuis ce dossier.
 
 Puis le script que l'action lance : créez le fichier `scripts/apex/backfill-crew-size.apex` et
 copiez-y ceci.
@@ -339,6 +343,13 @@ vers le repository d'origine, il ne peut pas la voir. Fermez-la et rouvrez-la av
 La classe n'est pas dans l'org où le script a tourné. Soit l'action tourne **avant** le déploiement,
 alors que la classe n'existe pas encore, soit les fichiers de classe n'ont pas été commités avec la
 story.
+
+**Le check échoue avec `ApexClass CrewCapacityBatch: Invalid type: Crew_Capacity__c`.**
+Le batch du [Lab 2.4](2-4-ship-reference-data-and-a-batch-with-deployment-actions.md) est parti dans `force-app/main/default/classes/` avec celui de ce lab, et
+`manifest/package.xml` liste `CrewCapacityBatch` et `CrewCapacityBatchTest`. Supprimez leurs quatre
+fichiers de `force-app/main/default/classes/`, gardez-en une copie dans `scripts/apex/samples/`
+(remettez-la si vous les avez déplacés), retirez leurs deux lignes `<members>` de
+`manifest/package.xml`, commitez et poussez : le check repart.
 
 **Le déploiement échoue toujours sur les permission sets.**
 Ils portent encore des `fieldPermissions` pour `Installation__c.Crew_Size__c`. Un champ obligatoire

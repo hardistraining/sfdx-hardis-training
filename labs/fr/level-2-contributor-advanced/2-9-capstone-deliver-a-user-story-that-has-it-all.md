@@ -5,7 +5,7 @@ description: "Livrez une User Story Salesforce avec une dépendance à vérifier
 level: 2
 lab: 9
 lang: fr
-source_rev: "8623cba947f94ad4f2c70fe61ab8939cfbee7664"
+source_rev: "7f50cabe5f249660c8efa0fcd8bd78bc7eb863b0"
 screenshots:
   - annotated/web/github-star-megalinter
 depends_on:
@@ -20,7 +20,7 @@ depends_on:
 
 **Niveau** : 2 Contributeur avancé
 
-**Durée** : ~55 min<!-- observed --> (observé : médiane 57 min, 8 participants, le plus rapide 23 min)<!-- /observed -->
+**Durée** : ~40 min<!-- observed --> (observé : médiane 41 min, 6 participants, le plus rapide 11 min)<!-- /observed -->
 
 **Vous allez** : livrer une story qui contient une dépendance à vérifier, une deployment action de
 données et un collègue qui travaille sur le même permission set, sans pas-à-pas.
@@ -57,24 +57,26 @@ savez déjà traiter les trois.
    (Text 255), `Sequence__c` (Number 3, 0), `Is_Done__c` et `Is_Template__c` (Checkbox, décochées).
    En le créant, cochez **Launch New Custom Tab Wizard after saving this custom object**, choisissez
    n'importe quel style d'onglet et gardez les autres valeurs par défaut de l'assistant : l'onglet est
-   ce qui vous mène aux enregistrements à l'étape 3
-3. **Construisez les données de référence** : 10 enregistrements `Handover_Item__c` modèles sans
+   ce qui vous mène aux enregistrements à l'étape 4
+3. **Accordez le nouvel objet et ses champs**, avant de créer le moindre enregistrement : sur le
+   permission set `Helios Delivery Manager`, jamais sur un profil, comme le [Lab 2.6](2-6-permission-sets-and-profiles.md) vous l'a fait faire : **Read**, **Create** et **Edit** sur
+   Handover Item, et **Read** et **Edit** sur ses champs. Vous portez ce permission set dans
+   `helios-dev` : c'est l'accès dont les enregistrements et le flow des deux étapes suivantes ont
+   besoin. L'utilisateur de la pipeline le porte lui aussi, et le chargement de données du deuxième
+   piège en a besoin, comme au [Lab 2.4](2-4-ship-reference-data-and-a-batch-with-deployment-actions.md)
+4. **Construisez les données de référence** : 10 enregistrements `Handover_Item__c` modèles sans
    installation, la checklist dont part chaque chantier. **Vous les créez à la main, dans
    `helios-dev`**, comme n'importe quel enregistrement : ouvrez l'org depuis **Orgs Manager**,
    cherchez **Handover Items** dans l'App Launcher, et cliquez dix fois sur **New**. Pour chaque enregistrement, donnez un **External Id**
    (`HANDOVER-TPL-01` à `HANDOVER-TPL-10`), un **Label** (`Panels fixed and torqued`,
    `Inverter commissioned`, `Isolator labelled`...), une **Sequence** (10, 20, 30...), cochez
    **Is Template**, et laissez **Installation** vide
-4. **Mettez à jour le contrôle de clôture** : le flow `Installation Close Check` refuse déjà de
+5. **Mettez à jour le contrôle de clôture** : le flow `Installation Close Check` refuse déjà de
    clôturer une installation sans date d'installation. Enregistrez-en une nouvelle version qui
    refuse aussi tant qu'un élément de handover lié n'est pas fait : après sa décision sur la date, un
    **Get Records** d'un `Handover Item` de cette installation avec `Is Done` à faux, une décision sur
    le fait qu'on en a trouvé un, et une **Custom Error**. Décrivez chaque élément que vous ajoutez,
    et donnez un fault path au Get Records, comme le [Lab 2.2](2-2-fix-a-missing-dependency-deployment-error.md) vous l'a fait faire
-5. **Accordez le nouvel objet et ses champs** sur le permission set `Helios Delivery Manager`, jamais
-   sur un profil, comme le [Lab 2.6](2-6-permission-sets-and-profiles.md) vous l'a fait faire : **Read**, **Create** et **Edit** sur
-   Handover Item, et **Read** et **Edit** sur ses champs. L'utilisateur de la pipeline porte lui aussi
-   ce permission set, et le chargement de données du deuxième piège en a besoin, comme au [Lab 2.4](2-4-ship-reference-data-and-a-batch-with-deployment-actions.md)
 6. **Faites un retrieve** : **Commit changes**, **Recent Changes**, et prenez ce que vous avez fait
    et rien d'autre, onglet compris. L'assistant d'onglet a aussi touché des profils et des
    applications : laissez ces lignes. Commitez

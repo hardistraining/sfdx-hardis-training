@@ -29,7 +29,7 @@ depends_on:
 
 **Level**: 3 Release Manager
 
-**Time**: ~55 min
+**Time**: ~1 h 15<!-- observed --> (observed: median 1 h 16, 5 learners, fastest 46 min)<!-- /observed -->
 
 **You will**: ship three approved User Stories to preprod while two others stay behind in UAT, solve
 the conflict that one of them drags along, and put the pipeline back afterwards, using the one
@@ -90,7 +90,7 @@ included.
 The two settings this lab needs were published in [Lab 3.1](3-1-configure-the-pipeline-up-to-production.md) and have been travelling up the
 pipeline with every promotion since. Look at them before you rely on them.
 
-Open the **DevOps Pipeline** panel, the gear menu, **Pipeline Settings**, scope **Global Settings**,
+Open the **DevOps Pipeline** panel, the gear menu, **Configure Pipeline Settings**, scope **Global Settings**,
 and the **Danger Zone** tab.
 
 ![The Danger Zone of the Global Pipeline Settings, with the two promotion branch settings](../../_assets/annotated/vscode/pipeline-config-danger--promotion-branches.png)

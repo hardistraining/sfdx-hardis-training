@@ -5,7 +5,7 @@ description: "Lisez un log de déploiement sfdx-hardis, trouvez ce qu'un joker .
 level: 3
 lab: 3
 lang: fr
-source_rev: "5d75b0205ade6bdfa2bbb578cf2f46453b2a9fc7"
+source_rev: "dedbee6351e8a899ded3a97d8417e23e2b64f67d"
 screenshots:
   - annotated/vscode/pipeline-config-deployment--delta
   - annotated/vscode/orgs-manager
@@ -28,7 +28,7 @@ depends_on:
 
 **Niveau** : 3 Release Manager
 
-**Durée** : ~3 h 05<!-- observed --> (observé : médiane 3 h 05, 3 participants, le plus rapide 1 h 30)<!-- /observed -->
+**Durée** : ~1 h 35<!-- observed --> (observé : médiane 1 h 37, 5 participants, le plus rapide 38 min)<!-- /observed -->
 
 **Vous allez** : lire correctement un log de déploiement, relire une Pull Request dont le contrôle
 échoue sur un champ qui est pourtant dans son diff et trouver le fichier qui le cache, puis
@@ -107,7 +107,7 @@ l'org doit vraiment être au commit où la pipeline la croit.
 !!! note "Ce projet a le delta désactivé, exprès"
     `useDeltaDeployment` est absent de `config/.sfdx-hardis.yml` : chaque déploiement de ce cours
     envoie donc le package complet. Lisez-le vous-même : **DevOps Pipeline**, menu engrenage,
-    **Pipeline Settings**, portée **Global Settings** **(1)**, onglet **Deployment** **(2)**.
+    **Configure Pipeline Settings**, portée **Global Settings** **(1)**, onglet **Deployment** **(2)**.
     **Use Delta Deployment** **(3)** affiche **Disabled**.
 
     L'application Helios fait maintenant une soixantaine de composants : un déploiement complet coûte une
@@ -549,4 +549,4 @@ Welcome page > **Training: Level 3** > **Check my work**, puis choisissez le **L
 - [Les rouages de Smart Deploy](https://sfdx-hardis.cloudity.com/salesforce-devops-smart-deployment/)
 - [Rattraper une action de déploiement en échec](https://sfdx-hardis.cloudity.com/salesforce-devops-work-on-user-story-deployment-actions/#recover-a-failed-action)
 
-[Suite : Lab 3.4 - Trois Pull Requests se percutent : choisir l'ordre de merge](3-4-merge-colliding-pull-requests.md){ .md-button .md-button--primary }
+[Suite : Lab 3.4 - Trois Pull Requests pour une release : revoir l'ordre de merge](3-4-merge-colliding-pull-requests.md){ .md-button .md-button--primary }

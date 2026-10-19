@@ -28,7 +28,7 @@ depends_on:
 
 **Level**: 3 Release Manager
 
-**Time**: ~3 h 05<!-- observed --> (observed: median 3 h 05, 3 learners, fastest 1 h 30)<!-- /observed -->
+**Time**: ~1 h 35<!-- observed --> (observed: median 1 h 37, 5 learners, fastest 38 min)<!-- /observed -->
 
 **You will**: read a deployment log properly, review a Pull Request whose check fails on a field
 that is right there in its diff and find the file that hides it, then recover post-deployment
@@ -102,7 +102,7 @@ org has to genuinely be at the commit the pipeline thinks it is at.
 !!! note "This project has delta off, on purpose"
     `useDeltaDeployment` is absent from `config/.sfdx-hardis.yml`, so every deployment in this
     course sends the full package. Read it for yourself: **DevOps Pipeline**, gear menu,
-    **Pipeline Settings**, scope **Global Settings** **(1)**, **Deployment** tab **(2)**.
+    **Configure Pipeline Settings**, scope **Global Settings** **(1)**, **Deployment** tab **(2)**.
     **Use Delta Deployment** **(3)** shows **Disabled**.
 
     The Helios app is about sixty components by now, so a full deployment costs a minute and delta would save
@@ -515,4 +515,4 @@ Welcome page > **Training: Level 3** > **Check my work**, then pick **Lab 3.3**.
 - [Smart Deploy internals](https://sfdx-hardis.cloudity.com/salesforce-devops-smart-deployment/)
 - [Recover a failed deployment action](https://sfdx-hardis.cloudity.com/salesforce-devops-work-on-user-story-deployment-actions/#recover-a-failed-action)
 
-[Next: Lab 3.4 - Three Pull Requests collide: choose the merge order](3-4-merge-colliding-pull-requests.md){ .md-button .md-button--primary }
+[Next: Lab 3.4 - Three Pull Requests in one release: review the merge order](3-4-merge-colliding-pull-requests.md){ .md-button .md-button--primary }

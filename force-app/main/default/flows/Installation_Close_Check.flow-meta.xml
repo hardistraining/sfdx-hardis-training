@@ -3,6 +3,28 @@
     <apiVersion>64.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <customErrors>
+        <description>Handover Fault Path</description>
+        <name>Check_Handover_Fault</name>
+        <label>Check Handover Fault</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <customErrorMessages>
+            <errorMessage>There has been an error</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <description>Error message</description>
+        <name>Handover_Item_Error_Message</name>
+        <label>Handover Item Error Message</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <customErrorMessages>
+            <errorMessage>Handover Items not complete</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
         <description>Refuses to close an installation that was never given an install date.</description>
         <name>Install_Date_Missing</name>
         <label>Install Date Missing</label>
@@ -14,11 +36,37 @@
         </customErrorMessages>
     </customErrors>
     <decisions>
+        <description>Checks if there is a handover item what is not complete</description>
+        <name>Handover_exist</name>
+        <label>Handover exist?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Check_Handover</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Handover_Item_Error_Message</targetReference>
+            </connector>
+            <label>Exists</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>Was the installation ever given an install date?</description>
         <name>No_Install_Date</name>
         <label>No Install Date</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Check_Handover</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Install date set</defaultConnectorLabel>
         <rules>
             <name>Date_Missing</name>
@@ -53,6 +101,38 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Retrieves any handover items that have not been completed</description>
+        <name>Check_Handover</name>
+        <label>Check Handover</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Handover_exist</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Check_Handover_Fault</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Installation__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Is_Done__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Handover_Item__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
         <locationX>0</locationX>
         <locationY>0</locationY>

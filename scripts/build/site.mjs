@@ -23,6 +23,7 @@ import { fileURLToPath } from "url";
 import { PILL_PALETTE } from "./annotate.mjs";
 import { strings, universeText, fill } from "../lib/strings.mjs";
 import { backlogPage, storyPage, badgesPage, badgePage, statsPage } from "../lib/pages.mjs";
+import { applyLabTemplate, markLongBold, templateWords } from "../lib/lab-template.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
@@ -226,8 +227,16 @@ function prepareLab(locale) {
       '"If it goes wrong" sections cannot be folded. Add the translated heading there.'
     );
   }
+  // Fails now, not halfway through the pages, when the locale has no template words
+  templateWords(locale);
+  // The step template first, on the markdown as written; the pills next, then the long
+  // bold runs, which must not reach into a pill already painted
   return (content, source, target) =>
-    colorPillReferences(foldTroubleshooting(rewriteEscapingLinks(content, source, target), heading));
+    markLongBold(
+      colorPillReferences(
+        foldTroubleshooting(applyLabTemplate(rewriteEscapingLinks(content, source, target), locale), heading)
+      )
+    );
 }
 
 fs.rmSync(OUT, { recursive: true, force: true });
@@ -559,6 +568,8 @@ function badgePages() {
     // The example Trailhead banner lives with the lab assets, one tree up from
     // the badges folder of the site language and two up from any other.
     const exampleBanner = `${locale === SITE_LANG ? ".." : "../.."}/_assets/badges/trailhead-banner.png`;
+    // The Cloudity services banner of this language, in the same tree
+    const brand = `${locale === SITE_LANG ? ".." : "../.."}/_assets/brand/cloudity-services-${locale}`;
 
     const indexAlternates = {};
     for (const other of locales) {
@@ -596,6 +607,7 @@ function badgePages() {
         // The banner version: one file per level, next to the badge images
         bannerImage: (level) => `${images}/banner-level-${level}.svg`,
         postImage: post ? `${images.replace(/img$/, "post")}/${holder.key}.png` : null,
+        cloudityBanner: { wide: `${brand}.png`, narrow: `${brand}-narrow.png` },
         // The course in the language of the page, which is the one a reader of
         // the post most likely reads too
         courseUrl: `${universe.course.site}/${localePrefix(locale)}`,

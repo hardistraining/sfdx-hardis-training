@@ -3,8 +3,16 @@
 What changed in the course, for learners and trainers. The course has no versions: each section is
 a day, newest first, and a change goes under the date of the day it is made.
 
+## 2026-10-21
+
+- Every screenshot says it can be enlarged: "click to enlarge" at the end of its caption, and a magnifier when the mouse is over it.
+- The comments under each page show the newest first. The Oldest button above them still switches back.
+- The notes that only some learners need are tip boxes again, as before the step template: Agentforce Vibes and the other editors in Labs 1.1 to 1.4, and the star and LinkedIn banner asides of the three capstones. Lab 1.4 no longer sends anyone to a terminal to open an org.
+
 ## 2026-10-20
 
+- Numbered tasks are only what every learner does: the Agentforce Vibes instructions, the ways back when something went wrong and the other ways in are now tip boxes inside the task they belong to.
+- Every step of every lab reads the same way: its goal, what to do as numbered tasks with each screenshot under its task, why, and what you should now see, with a box to tick when it is done. Proposed by [fkramer690](https://github.com/fkramer690) in [#142](https://github.com/hardisgroupcom/sfdx-hardis-training/discussions/142).
 - Labs 3.5, 3.6, 3.7 and 3.10 name the GitHub option to pick for a promotion: Create a merge commit, under the arrow of the green button.
 - Lab 3.1 shows the DevOps Pipeline in the middle of step 8, and its two settings steps are numbered lists.
 - Lab 3.3 says why a failed action has no Retry button, and why re-running the job on GitHub is not the same thing.

@@ -3,12 +3,91 @@
 What changed in the course, for learners and trainers. The course has no versions: each section is
 a day, newest first, and a change goes under the date of the day it is made.
 
+## 2026-10-21
+
+- Every screenshot says it can be enlarged: "click to enlarge" at the end of its caption, and a magnifier when the mouse is over it.
+- The comments under each page show the newest first. The Oldest button above them still switches back.
+- The notes that only some learners need are tip boxes again, as before the step template: Agentforce Vibes and the other editors in Labs 1.1 to 1.4, and the star and LinkedIn banner asides of the three capstones. Lab 1.4 no longer sends anyone to a terminal to open an org.
+
+## 2026-10-20
+
+- Numbered tasks are only what every learner does: the Agentforce Vibes instructions, the ways back when something went wrong and the other ways in are now tip boxes inside the task they belong to.
+- Every step of every lab reads the same way: its goal, what to do as numbered tasks with each screenshot under its task, why, and what you should now see, with a box to tick when it is done. Proposed by [fkramer690](https://github.com/fkramer690) in [#142](https://github.com/hardisgroupcom/sfdx-hardis-training/discussions/142).
+- Labs 3.5, 3.6, 3.7 and 3.10 name the GitHub option to pick for a promotion: Create a merge commit, under the arrow of the green button.
+- Lab 3.1 shows the DevOps Pipeline in the middle of step 8, and its two settings steps are numbered lists.
+- Lab 3.3 says why a failed action has no Retry button, and why re-running the job on GitHub is not the same thing.
+- Simulate my teammates ends with a button that opens the Pull Request it created.
+- Lab 3.7 opens production from Orgs Manager, warns about hotfixes from integration at the top of step 2, and says what to do with a retrofit that brought nothing down.
+
+## 2026-10-19
+
+- Trainers: the lab drivers point to the training scenario of the `e2e` skill of sfdx-hardis, which replaces the `training-e2e` skill.
+- Links to another site (GitHub, Salesforce, the sfdx-hardis documentation) open in a new tab, so the lab stays open.
+- Lab 2.3 says to copy only its four Apex files, and explains the check that fails on the Lab 2.4 batch when it is copied too.
+- Lab 3.8 says what to do when GitHub refuses a push during the configuration: never merge the monitoring branch into `main`, and store the two new secrets of each run.
+
+- Lab 3.1 shows what the scratch org pool, org initialization and replacement rules are for, with a picture of each and its documentation page, without asking you to set them up.
+
+## 2026-10-18
+
+- Labs 3.1 and 3.6 follow the new gear menu of the DevOps Pipeline: Configure Pipeline Settings, Add or Reconnect a Major Org, Configure Org Initialization, Configure Replacement Rules and Generate DORA Metrics, with their screenshots taken again.
+- Set up my training environment says what it waits for while it turns Dev Hub on, and stops with a clear message when the org does not answer.
+
+## 2026-10-17
+
+- Lab 3.4 says plainly that US-018 and US-019 are already merged when it starts, and reviews their merge order instead of promising a live collision.
+- Lab 3.6 explains the conflict in `config/.sfdx-hardis.yml` on the first Pull Request into `preprod` when a course update was squashed, and Lab 3.1 warns about it.
+- Update my course reminds you to merge its Pull Request with a merge commit whenever it hands it over to you.
+- Contributors: Claude Code loads the MegaLinter skills and agents from the MegaLinter plugin, enabled in `.claude/settings.json`.
+
+## 2026-10-16
+
+- Lab 1.7 names the data type as the field wizard lists it, Text Area (Long).
+- Lab 2.1 says to close the question that offers to merge `integration` into the finished Level 1 branch after Back.
+- Lab 2.3 says that Salesforce asks to confirm as soon as Required is ticked, and that a record page shows "We hit a snag".
+- Lab 2.4 and Lab 2.9 give the Record Name settings and the type of every field of their new objects.
+- Lab 2.5 explains why the Apex Tests card of `helios-dev` and the check of the Pull Request can read a different coverage.
+- Lab 2.6 says where to remove a layout the target org lacks when the lab's own Pull Request goes red.
+- Lab 2.9 grants the new object and its fields before you create its records and edit the flow (feedback from a learner).
+- Lab 3.5: **Publish my pipeline configuration** works when your local `integration` is behind GitHub, and names the file when your change collides with one merged there (feedback from a learner).
+- The help page says to switch GitHub Actions back on before resetting a level (feedback from a learner).
+- Lab 2.7 and Lab 3.10 give the whole merge message and the Continue button that ends a merge.
+- Lab 3.1 names what the External Client App page shows, and commits the configuration as US-050 so the promotion of Lab 3.5 finds its ticket.
+- Lab 3.10 no longer shows a stray heading in step 6, which the linter reported on every learner's first Pull Request.
+
+## 2026-10-15
+
+- Lab 2.8 makes the mess with twenty recent rows and the Admin Profile instead of every row, so the retrieve is short and skips the Agentforce rows (feedback from a learner).
+- Lab 2.9 creates a tab with the Handover Item object, and lists its steps in the order they run, from the count to the merge (feedback from a learner).
+- Lab 3.1 explains a Pull Request stuck on "Expected - Waiting for status to be reported" with no check running (feedback from a learner).
+- The Statistics page and the times of the labs are recalculated after every badge awarded, not only on Mondays.
+
+## 2026-10-14
+
+- Lab 1.4 says that in Agentforce Vibes the org opens in a new browser tab, and what to do while the extension that opened nothing there is being updated (issue #163).
+- Lab 2.8 says to untick the Agentforce rows before the select-all retrieve, not after it fails, and that this retrieve is long by design (feedback from a learner).
+- Lab 2.6 and Lab 3.3 show the Deployment packages menu of the DevOps Pipeline panel, an icon whose name only appears on hover, with the picture Lab 1.5 already had (feedback from a learner).
+- Lab 3.3 quotes the deployment comment of a failed action with its new verdict, "⚠️ Deployed to integration, but an action failed after the deployment".
+- The three capstones and every badge page show the Cloudity services banner, as the home page and the Help page do.
+- Levels 2 and 3 no longer show the amber "This level is in QA" banner: the three levels are released.
+
 ## 2026-10-13
 
+- The Badges page lists the holders by badge, Release Manager first, with the date and time of each award and the latest one on top.
 - The home page opens on a banner of the course and a Start button, and shows the DevOps Pipeline panel in motion before the list of levels.
 - The home page, the Help page, the last lab of each level and every badge page say who offers the course: Cloudity, and what it does on real projects, from Agentforce and Revenue Cloud to Field Service, Managed Services and DevOps.
 - Every page ends with one line about Cloudity in its footer, and each menu has a link to the Cloudity site in its language.
 - In dark mode, the label of a purple button can be read again.
+- Lab 2.2: an installation now shows its activities, so the task the flow creates can be seen on the record.
+- Lab 2.3: step 8 says when to merge the Pull Request, and how.
+- Lab 3.1: the step that configures `main` says to tick no merge target.
+- Lab 3.9: how to read a generated page as a page in VS Code.
+- Lab 3.10: the `uat` counter reads seven, then four, as on your fork, and the screenshots show the seven Pull Requests.
+- The numbered marks of about thirty screenshots, in all three levels, are back on the button, field or line the step names, and no longer hide part of it.
+- The Level 1 training menu is shown with its seven commands, **Update my course** included.
+- Lab 2.8: the picture of the command list shows the whole **Reset selected list of items to merge** row.
+- Lab 2.4: the data action in the pictures carries the label the lab asks you to type.
+- Lab 2.4: step 1 names the permission set, and the troubleshooting says what to do when the check of step 5 stays green on a fork updated before 2026-10-07.
 
 ## 2026-10-12
 

@@ -1,0 +1,4 @@
+mergeTargets:
+  - main
+targetUsername: hardistraining+preprod.b1c5bf736648@agentforce.com
+instanceUrl: https://login.salesforce.com

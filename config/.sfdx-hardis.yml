@@ -272,3 +272,5 @@ useSmartDeploymentTests: false
 allowedPromotionSteps:
   - source: uat
     target: preprod
+serviceNowPostDeploymentComments: true
+monitoringRepository: https://github.com/hardistraining/sfdx-hardis-training-monitoring

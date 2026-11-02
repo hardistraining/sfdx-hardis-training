@@ -3,8 +3,14 @@
 What changed in the course, for learners and trainers. The course has no versions: each section is
 a day, newest first, and a change goes under the date of the day it is made.
 
+## 2026-10-22
+
+- Guinea Run, the game hidden in every page, is online: the Konami code or five taps on the guinea pig in the footer open it, on a computer or a smartphone.
+- The guinea pig of Guinea Run squeaks with a new, shorter set of wheeks when it jumps.
+
 ## 2026-10-21
 
+- Something small and furry now lives in the footer of every page.
 - Every screenshot says it can be enlarged: "click to enlarge" at the end of its caption, and a magnifier when the mouse is over it.
 - The comments under each page show the newest first. The Oldest button above them still switches back.
 - The notes that only some learners need are tip boxes again, as before the step template: Agentforce Vibes and the other editors in Labs 1.1 to 1.4, and the star and LinkedIn banner asides of the three capstones. Lab 1.4 no longer sends anyone to a terminal to open an org.
